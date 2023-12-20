@@ -37,9 +37,21 @@ class MainActivity : ComponentActivity() {
                         Greeting("Android")
 
                         Button(onClick = {
-                            runTextRecognition()
+                            runTextRecognition(R.drawable.wildlife)
                         }) {
-                            Text("Process image")
+                            Text("Process image 1 (wildlife)")
+                        }
+
+                        Button(onClick = {
+                            runTextRecognition(R.drawable.nyc)
+                        }) {
+                            Text("Process image 2 (nyc)")
+                        }
+
+                        Button(onClick = {
+                            runTextRecognition(R.drawable.creative)
+                        }) {
+                            Text("Process image 3 (creative)")
                         }
                     }
                 }
@@ -47,9 +59,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun runTextRecognition() {
+    private fun runTextRecognition( resource: Int ) {
 
-        var selectedImage = BitmapFactory.decodeResource(resources, R.drawable.sign1)
+        var selectedImage = BitmapFactory.decodeResource(resources, resource)
 
         val image = InputImage.fromBitmap(selectedImage, 0)
         var textRecognizerOptions = TextRecognizerOptions.Builder().build()
